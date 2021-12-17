@@ -49,6 +49,11 @@ map("n", "<c-k>", "<cmd>m .-2<CR>==", { silent = true })
 map("v", "<c-j>", ":m '>+1<CR>==gv=gv", { silent = true })
 map("v", "<c-k>", ":m '<-2<CR>==gv=gv", { silent = true })
 
+-- Git sign
+map("n", "<leader>hs", "<cmd>Gitsigns stage_hunk<CR>", { silent = true })
+map("n", "<leader>hp", "<cmd>Gitsigns preview_hunk<CR>", { silent = true })
+map("n", "<leader>hb", '<cmd>lua require"gitsigns".blame_line{full=true}<CR>', { silent = true })
+
 -- Easier split mappings
 
 -- Rename

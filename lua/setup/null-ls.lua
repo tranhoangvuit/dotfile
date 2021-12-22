@@ -5,8 +5,6 @@ local lSsources = {
     filetypes = {
       "javascript",
       "typescript",
-      "ruby",
-      "go",
       "css",
       "scss",
       "html",
@@ -22,10 +20,10 @@ local lSsources = {
     args = { "--indent-width", "2", "--indent-type", "Spaces", "-" },
   }),
 }
-require("null-ls").config({
+require("null-ls").setup({
   sources = lSsources,
 })
-require("lspconfig")["null-ls"].setup({})
+-- require("lspconfig")["null-ls"].setup({})
 -- the duration in there is to stop timeouts on massive files
 vim.cmd("autocmd BufWritePost * lua vim.lsp.buf.formatting_seq_sync(nil, 7500)")
 vim.o.updatetime = 250

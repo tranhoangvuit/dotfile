@@ -10,7 +10,7 @@ vim.g.mapleader = ","
 
 -- Nvim Tree
 map("n", "<leader>e", ":NvimTreeToggle<CR>", { silent = true })
-map("n", "<leader>u", ":nvimtreefindfile<cr>", { silent = true })
+map("n", "<leader>u", ":NvimTreeFindFile<cr>", { silent = true })
 
 -- Telescope
 map("n", "<Leader>1", ":Telescope sessions [save_current=true]<CR>")

@@ -45,7 +45,7 @@ require("lspconfig").tsserver.setup({
     client.resolved_capabilities.document_formatting = false
   end,
 })
-
+require'lspconfig'.solargraph.setup{}
 require("lspconfig").gopls.setup({
   cmd = { "gopls" },
 })

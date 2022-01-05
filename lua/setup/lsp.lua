@@ -45,7 +45,7 @@ require("lspconfig").tsserver.setup({
     client.resolved_capabilities.document_formatting = false
   end,
 })
-require'lspconfig'.solargraph.setup{}
+require("lspconfig").solargraph.setup({})
 require("lspconfig").gopls.setup({
   cmd = { "gopls" },
 })
@@ -70,4 +70,4 @@ for type, icon in pairs(signs) do
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = nil })
 end
 
-vim.cmd([[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focusable=false, source = 'always'})]])
+vim.cmd([[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float()]])

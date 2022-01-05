@@ -20,10 +20,12 @@ local lSsources = {
     args = { "--indent-width", "2", "--indent-type", "Spaces", "-" },
   }),
 }
+
 require("null-ls").setup({
   sources = lSsources,
+  on_attach = function(client)
+    if client.resolved_capabilities.document_formatting then
+      vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
+    end
+  end,
 })
--- require("lspconfig")["null-ls"].setup({})
--- the duration in there is to stop timeouts on massive files
-vim.cmd("autocmd BufWritePost * lua vim.lsp.buf.formatting_seq_sync(nil, 7500)")
-vim.o.updatetime = 250

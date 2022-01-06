@@ -27,6 +27,7 @@ map("n", "<leader>ca", '<cmd>lua require("telescope.builtin").lsp_code_actions()
 map("n", "<leader>cs", '<cmd>lua require("telescope.builtin").lsp_document_symbols()<cr>')
 map("n", "<leader>cd", '<cmd>lua require("telescope.builtin").lsp_document_diagnostics()<cr>')
 map("n", "<leader>cr", '<cmd>lua require("telescope.builtin").lsp_references()<cr>')
+map("n", "<leader>ci", "<cmd>lua vim.diagnostic.open_float()<cr>")
 
 -- LSP config
 map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>")

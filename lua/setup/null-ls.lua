@@ -16,6 +16,7 @@ local lSsources = {
       "txt",
     },
   }),
+  null_ls.builtins.diagnostics.golangci_lint,
   null_ls.builtins.formatting.stylua.with({
     args = { "--indent-width", "2", "--indent-type", "Spaces", "-" },
   }),

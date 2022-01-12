@@ -1,3 +1,4 @@
+vim.opt.shell = "/bin/sh"
 local opt = vim.opt -- to set options
 opt.backspace = { "indent", "eol", "start" }
 opt.clipboard = "unnamedplus"
@@ -9,8 +10,6 @@ opt.expandtab = true -- Use spaces instead of tabs
 opt.foldenable = false
 opt.foldmethod = "indent"
 opt.formatoptions = "l"
-opt.hidden = true
-opt.hidden = true -- Enable background buffers
 opt.hlsearch = true -- Highlight found searchesopt.ignorecase = true -- Ignore case
 opt.inccommand = "split" -- Get a preview of replacements
 opt.incsearch = true -- Shows the match while typing

@@ -110,7 +110,11 @@ return require("packer").startup({
       event = "BufReadPre",
       config = get_setup("hop"),
     })
-    use({ "Shatur/neovim-session-manager", config = get_setup("session") })
+    use({
+      "rmagatti/session-lens",
+      requires = { "rmagatti/auto-session", "nvim-telescope/telescope.nvim" },
+      config = get_setup("session"),
+    })
     use({ "windwp/nvim-ts-autotag" })
 
     use({

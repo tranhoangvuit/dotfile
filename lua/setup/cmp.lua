@@ -34,6 +34,11 @@ cmp.setup({
     { name = "nvim_lsp" },
     { name = "vsnip" },
     { name = "buffer" },
+    { name = "look", keyword_length = 3, option = { convert_case = true, loud = true } },
+    { name = "nvim_lua" },
+    { name = "calc" },
+    { name = "emoji" },
+    { name = "path" },
   },
   formatting = {
     format = lspkind.cmp_format({
@@ -53,8 +58,8 @@ cmp.setup({
   },
 })
 
-cmp.setup.cmdline("/", {
-  sources = {
-    { name = "buffer" },
-  },
-})
+-- cmp.setup.cmdline("/", {
+--   sources = {
+--     { name = "buffer" },
+--   },
+-- })

@@ -3,7 +3,7 @@ local action_state = require("telescope.actions.state")
 local actions = require("telescope.actions")
 require("telescope").setup({
   defaults = {
-    winblend = 20,
+    winblend = 0,
     sorting_strategy = "descending",
     layout_strategy = "flex",
     layout_config = {

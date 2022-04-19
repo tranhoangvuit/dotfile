@@ -30,7 +30,8 @@ return require("packer").startup({
     use("wbthomason/packer.nvim")
     use({ "nathom/filetype.nvim", config = get_setup("filetype") })
     -- use({ "EdenEast/nightfox.nvim", config = get_setup("nightfox") })
-    use({ "ful1e5/onedark.nvim", config = get_setup("onedark") })
+    -- use({ "ful1e5/onedark.nvim", config = get_setup("onedark") })
+    use({ "olimorris/onedarkpro.nvim", config = get_setup("onedarkpro") })
     use({ "kyazdani42/nvim-web-devicons" })
     use({
       "nvim-lualine/lualine.nvim",
@@ -85,9 +86,9 @@ return require("packer").startup({
     use({ "neovim/nvim-lspconfig", config = get_setup("lsp") })
     use({
       "numToStr/Comment.nvim",
-      opt = true,
-      keys = { "gc", "gcc" },
-      config = get_setup("comment"),
+      config = function()
+        require("Comment").setup()
+      end,
     })
     use({
       "nvim-telescope/telescope.nvim",
@@ -124,7 +125,6 @@ return require("packer").startup({
     })
     use({ "filipdutescu/renamer.nvim", config = get_setup("renamer") })
     use({ "goolord/alpha-nvim", config = get_setup("alpha") })
-    use({ "akinsho/toggleterm.nvim" })
 
     use({ "luukvbaal/stabilize.nvim", config = get_setup("stabilize") })
     use({

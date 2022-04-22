@@ -3,7 +3,7 @@ local opt = vim.opt -- to set options
 opt.backspace = { "indent", "eol", "start" }
 opt.clipboard = "unnamedplus"
 opt.completeopt = "menu,menuone,noselect"
-opt.cursorline = true
+opt.cursorline = false
 opt.encoding = "utf-8" -- Set default encoding to UTF-8
 opt.expandtab = true -- Use spaces instead of tabs
 opt.foldenable = false
@@ -44,6 +44,9 @@ opt.undofile = true
 vim.cmd("au TextYankPost * lua vim.highlight.on_yank {on_visual = true}") -- disabled in visual mode
 -- Give me some fenced codeblock goodness
 vim.g.markdown_fenced_languages = { "html", "javascript", "typescript", "css", "scss", "lua", "vim", "go", "ruby" }
+
+vim.cmd([[colorscheme nordfox]]) -- Put your favorite colorscheme here
+
 -- Deal with file loads after updating via git etc
 opt.autoread = true
 -- trigger `autoread` when files changes on disk

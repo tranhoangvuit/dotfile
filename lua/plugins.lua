@@ -29,9 +29,9 @@ return require("packer").startup({
     -- Packer can manage itself
     use("wbthomason/packer.nvim")
     use({ "nathom/filetype.nvim", config = get_setup("filetype") })
-    -- use({ "EdenEast/nightfox.nvim", config = get_setup("nightfox") })
+    use({ "EdenEast/nightfox.nvim", config = get_setup("nightfox") })
     -- use({ "ful1e5/onedark.nvim", config = get_setup("onedark") })
-    use({ "olimorris/onedarkpro.nvim", config = get_setup("onedarkpro") })
+    -- use({ "olimorris/onedarkpro.nvim", config = get_setup("onedarkpro") })
     use({ "kyazdani42/nvim-web-devicons" })
     use({
       "nvim-lualine/lualine.nvim",

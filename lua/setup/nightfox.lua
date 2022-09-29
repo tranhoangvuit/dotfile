@@ -35,3 +35,5 @@ nightfox.setup({
 -- augroup END]],
 --   true
 -- )
+
+vim.cmd([[colorscheme nordfox]])

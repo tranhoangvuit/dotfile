@@ -27,5 +27,15 @@ require("nvim-treesitter.configs").setup({
 -- Setup treesitter
 local ts = require("nvim-treesitter.configs")
 ts.setup({
+  ensure_installed = {
+    "css",
+    "typescript",
+    "lua",
+    "html",
+    "javascript",
+    "json",
+    "yaml",
+    "vim",
+  },
   highlight = { enable = true },
 })

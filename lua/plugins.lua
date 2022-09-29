@@ -33,6 +33,15 @@ return require("packer").startup({
     -- use({ "ful1e5/onedark.nvim", config = get_setup("onedark") })
     -- use({ "olimorris/onedarkpro.nvim", config = get_setup("onedarkpro") })
     use({ "kyazdani42/nvim-web-devicons" })
+    use({ "lukas-reineke/indent-blankline.nvim", config = get_setup("indent-blankline") })
+    use({
+      "gen740/SmoothCursor.nvim",
+      config = get_setup("smoothcursor"),
+    })
+    use({
+      "folke/zen-mode.nvim",
+      config = get_setup("zen-mode"),
+    })
     use({
       "nvim-lualine/lualine.nvim",
       config = get_setup("lualine"),
@@ -67,7 +76,7 @@ return require("packer").startup({
         { "hrsh7th/vim-vsnip" },
         { "hrsh7th/cmp-vsnip" },
         { "hrsh7th/vim-vsnip-integ" },
-        { "f3fora/cmp-spell", { "hrsh7th/cmp-calc" }, { "hrsh7th/cmp-emoji" } },
+        { "rafamadriz/friendly-snippets" },
       },
       config = get_setup("cmp"),
     })
@@ -102,7 +111,8 @@ return require("packer").startup({
       config = get_setup("telescope"),
     })
     use({ "nvim-telescope/telescope-file-browser.nvim" })
-    use({ "onsails/lspkind-nvim", requires = { { "famiu/bufdelete.nvim" } } })
+    use({ "onsails/lspkind-nvim" })
+    use({ "famiu/bufdelete.nvim" })
     use({ "tpope/vim-repeat" })
     use({ "tpope/vim-surround" })
     use({ "wellle/targets.vim" })
@@ -123,7 +133,6 @@ return require("packer").startup({
       requires = { { "winston0410/cmd-parser.nvim" } },
       config = get_setup("range-highlight"),
     })
-    use({ "filipdutescu/renamer.nvim", config = get_setup("renamer") })
     use({ "goolord/alpha-nvim", config = get_setup("alpha") })
 
     use({ "luukvbaal/stabilize.nvim", config = get_setup("stabilize") })

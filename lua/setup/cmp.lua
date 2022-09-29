@@ -29,11 +29,23 @@ cmp.setup({
   },
   completion = {
     completeopt = "menu,menuone,noinsert",
+    keyword_length = 2,
   },
   sources = {
     { name = "nvim_lsp" },
     { name = "vsnip" },
-    { name = "buffer" },
+    {
+      name = "buffer",
+      option = {
+        get_bufnrs = function()
+          local bufs = {}
+          for _, win in ipairs(vim.api.nvim_list_wins()) do
+            bufs[vim.api.nvim_win_get_buf(win)] = true
+          end
+          return vim.tbl_keys(bufs)
+        end,
+      },
+    },
     { name = "look", keyword_length = 3, option = { convert_case = true, loud = true } },
     { name = "nvim_lua" },
     { name = "calc" },

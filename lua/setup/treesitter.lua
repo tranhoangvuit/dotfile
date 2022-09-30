@@ -36,6 +36,7 @@ ts.setup({
     "json",
     "yaml",
     "vim",
+    "go",
   },
   highlight = { enable = true },
 })

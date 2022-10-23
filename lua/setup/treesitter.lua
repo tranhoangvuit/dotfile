@@ -37,6 +37,7 @@ ts.setup({
     "yaml",
     "vim",
     "go",
+    "ruby",
   },
   highlight = { enable = true },
 })

@@ -14,21 +14,31 @@ local lSsources = {
       "graphql",
       "md",
       "txt",
-      "tsx",
     },
   }),
-  null_ls.builtins.diagnostics.golangci_lint,
+  null_ls.builtins.formatting.goimports,
+  null_ls.builtins.formatting.gofumpt,
   null_ls.builtins.formatting.stylua.with({
     filetypes = { "lua" },
     args = { "--indent-width", "2", "--indent-type", "Spaces", "-" },
   }),
+  null_ls.builtins.diagnostics.golangci_lint,
+  null_ls.builtins.formatting.rubocop,
+  null_ls.builtins.diagnostics.rubocop,
 }
 
 require("null-ls").setup({
   sources = lSsources,
-  on_attach = function(client)
-    if client.resolved_capabilities.document_formatting then
-      vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
+  on_attach = function(client, bufnr)
+    if client.supports_method("textDocument/formatting") then
+      vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        group = augroup,
+        buffer = bufnr,
+        callback = function()
+          vim.lsp.buf.format({ bufnr = bufnr })
+        end,
+      })
     end
   end,
 })

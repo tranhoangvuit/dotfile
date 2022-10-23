@@ -9,6 +9,13 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
   },
 }
 
+local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+  opts = opts or {}
+  opts.border = "rounded"
+  return orig_util_open_floating_preview(contents, syntax, opts, ...)
+end
+
 -- Different machine VAR for office
 local envMachine = os.getenv("MACHINE")
 if envMachine == "work" then
@@ -17,6 +24,9 @@ if envMachine == "work" then
 else
   machineCmd = "vscode-css-language-server"
 end
+
+--Enable (broadcasting) snippet capability for completion
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 -- LSP Server config
 require("lspconfig").cssls.setup({
@@ -34,22 +44,21 @@ require("lspconfig").cssls.setup({
       },
     },
   },
-  capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
   on_attach = function(client)
     client.resolved_capabilities.document_formatting = false
   end,
 })
 require("lspconfig").tsserver.setup({
-  capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+  capabilities = capabilities,
   on_attach = function(client)
-    client.resolved_capabilities.document_formatting = false
+    client.server_capabilities.document_formatting = false
   end,
 })
 
 require("lspconfig").html.setup({
-  capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+  capabilities = capabilities,
   on_attach = function(client)
-    client.resolved_capabilities.document_formatting = false
+    client.server_capabilities.document_formatting = false
   end,
 })
 

@@ -61,8 +61,10 @@ vim.g.markdown_fenced_languages = { "html", "javascript", "typescript", "css", "
 -- Deal with file loads after updating via git etc
 opt.autoread = true
 -- trigger `autoread` when files changes on disk
-vim.cmd([[
-      autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
-      autocmd FileChangedShellPost *
-        \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
-]])
+-- auto-reload files when modified externally
+-- https://unix.stackexchange.com/a/383044
+vim.o.autoread = true
+vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
+  command = "if mode() != 'c' | checktime | endif",
+  pattern = { "*" },
+})

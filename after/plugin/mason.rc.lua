@@ -9,7 +9,6 @@ mason.setup({
 
 require("lspconfig").gopls.setup {}
 require("lspconfig").golangci_lint_ls.setup {}
-require("lspconfig").goimports.setup {}
 
 lspconfig.setup {
   automatic_installation = true

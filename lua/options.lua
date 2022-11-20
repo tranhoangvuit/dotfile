@@ -1,70 +1,52 @@
-vim.opt.shell = "/bin/sh"
-local opt = vim.opt -- to set options
-opt.backspace = { "indent", "eol", "start" }
-opt.clipboard = "unnamedplus"
-opt.completeopt = "menu,menuone,noselect"
-opt.cursorline = false
-opt.encoding = "utf-8" -- Set default encoding to UTF-8
-opt.expandtab = true -- Use spaces instead of tabs
-opt.foldenable = false
-opt.foldmethod = "indent"
-opt.formatoptions = "l"
-opt.hidden = true -- Enable background buffers
-opt.hlsearch = true -- Highlight found searches
-opt.ignorecase = true -- Ignore case
-opt.inccommand = "split" -- Get a preview of replacements
-opt.incsearch = true -- Shows the match while typing
-opt.joinspaces = false -- No double spaces with join
-vim.o.lazyredraw = true
-opt.linebreak = true -- Stop words being broken on wrap
-opt.number = true -- Show line numbers
-opt.list = true -- Show some invisible characters
-opt.listchars = { tab = "| ", trail = "·" }
-opt.relativenumber = true
-opt.scrolloff = 4 -- Lines of context
-opt.shiftround = true -- Round indent
-opt.shiftwidth = 2 -- Size of an indent
-opt.showmode = false -- Don't display mode
-opt.sidescrolloff = 8 -- Columns of context
-opt.signcolumn = "yes:1" -- always show signcolumns
-opt.smartcase = true -- Do not ignore case with capitals
-opt.smartindent = true -- Insert indents automatically
-opt.spelllang = { "en_gb" }
-opt.splitbelow = true -- Put new windows below current
-opt.splitright = true -- Put new windows right of current
-opt.tabstop = 2 -- Number of spaces tabs count for
-opt.termguicolors = true -- You will have bad experience for diagnostic messages when it's default 4000.
-opt.wrap = true
-opt.cc = "80"
-opt.mouse = "a"
-opt.guicursor =
-  "n-v-c-sm:block-blinkwait50-blinkon50-blinkoff50,i-ci-ve:ver25-Cursor-blinkon100-blinkoff100,r-cr-o:hor20"
-opt.undodir = vim.fn.stdpath("config") .. "/undo"
-opt.undofile = true
+vim.cmd("autocmd!")
 
-local api = vim.api
--- Highlight on yank
-local yankGrp = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
-api.nvim_create_autocmd("TextYankPost", {
-  group = yankGrp,
+vim.scriptencoding = "utf-8"
+vim.opt.encoding = "utf-8"
+vim.opt.fileencoding = "utf-8"
 
+vim.wo.number = true
+
+vim.opt.title = true
+vim.opt.autoindent = true
+vim.opt.smartindent = true
+vim.opt.hlsearch = true
+vim.opt.backup = false
+vim.opt.showcmd = true
+vim.opt.cmdheight = 1
+vim.opt.laststatus = 2
+vim.opt.expandtab = true
+vim.opt.scrolloff = 10
+vim.opt.shell = "fish"
+vim.opt.backupskip = { "/tmp/*", "/private/tmp/*" }
+vim.opt.inccommand = "split"
+vim.opt.ignorecase = true -- Case insensitive searching UNLESS /C or capital in search
+vim.opt.smarttab = true
+vim.opt.breakindent = true
+vim.opt.shiftwidth = 2
+vim.opt.tabstop = 2
+vim.opt.wrap = false -- No Wrap lines
+vim.opt.backspace = { "start", "eol", "indent" }
+vim.opt.path:append({ "**" }) -- Finding files - Search down into subfolders
+vim.opt.wildignore:append({ "*/node_modules/*" })
+vim.opt.wrap = true
+
+-- Undercurl
+vim.cmd([[let &t_Cs = "\e[4:3m"]])
+vim.cmd([[let &t_Ce = "\e[4:0m"]])
+
+-- Turn off paste mode when leaving insert
+vim.api.nvim_create_autocmd("InsertLeave", {
   pattern = "*",
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-  desc = "Highlight yank",
+  command = "set nopaste",
 })
 
--- Give me some fenced codeblock goodness
-vim.g.markdown_fenced_languages = { "html", "javascript", "typescript", "css", "scss", "lua", "vim", "go", "ruby" }
+-- Add asterisks in block comments
+vim.opt.formatoptions:append({ "r" })
 
--- Deal with file loads after updating via git etc
-opt.autoread = true
--- trigger `autoread` when files changes on disk
--- auto-reload files when modified externally
--- https://unix.stackexchange.com/a/383044
-vim.o.autoread = true
-vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
-  command = "if mode() != 'c' | checktime | endif",
-  pattern = { "*" },
-})
+-- Highlights
+vim.opt.cursorline = true
+vim.opt.termguicolors = true
+vim.opt.winblend = 0
+vim.opt.wildoptions = "pum"
+vim.opt.pumblend = 5
+vim.opt.background = "dark"

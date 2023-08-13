@@ -1,6 +1,4 @@
-require("plugins")
-require("options")
-require("mappings")
+require("config.lazy")
 
 local has = vim.fn.has
 local is_mac = has("macunix")

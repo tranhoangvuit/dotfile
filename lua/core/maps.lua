@@ -3,6 +3,9 @@ vim.g.maplocalleader = ','
 
 local keymap = vim.keymap
 
+-- Clear search highlights
+keymap.set({'n', 'v'}, '<esc>', '<cmd>noh<cr><esc>', { silent = true })
+
 keymap.set('n', 'x', '"_x')
 
 -- Increment/decrement

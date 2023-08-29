@@ -34,6 +34,15 @@ return {
           behavior = cmp.ConfirmBehavior.Replace,
           select = true,
         },
+        ['<C-o>'] = cmp.mapping(function(fallback)
+          local fallback_key = vim.api.nvim_replace_termcodes('<Tab>', true, true, true)
+          local resolved_key = vim.fn['copilot#Accept'](fallback)
+          if fallback_key == resolved_key then
+            cmp.confirm({ select = true })
+          else
+            vim.api.nvim_feedkeys(resolved_key, 'n', true)
+          end
+        end),
         ['<Tab>'] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_next_item()

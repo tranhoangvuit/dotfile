@@ -3,6 +3,10 @@ vim.g.maplocalleader = ','
 
 local keymap = vim.keymap
 
+-- Move
+keymap.set({'n'}, '<C-j>', '20j')
+keymap.set({'n'}, '<C-k>', '20k')
+
 -- Clear search highlights
 keymap.set({'n', 'v'}, '<esc>', '<cmd>noh<cr><esc>', { silent = true })
 

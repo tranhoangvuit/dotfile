@@ -37,3 +37,5 @@ require('lazy').setup({
   { 'numToStr/Comment.nvim',                     opts = {} },
   { 'nvim-telescope/telescope-file-browser.nvim' },
 })
+vim.g.copilot_no_tab_map = true
+vim.g.copilot_assume_mapped = true

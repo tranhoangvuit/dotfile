@@ -27,10 +27,10 @@ require('lazy').setup({
   { 'folke/which-key.nvim', opts = {} },
   {
     -- Theme inspired by Atom
-    'navarasu/onedark.nvim',
+    'rebelot/kanagawa.nvim',
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme 'onedark'
+      vim.cmd.colorscheme 'kanagawa'
     end,
   },
   -- "gc" to comment visual regions/lines

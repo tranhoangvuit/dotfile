@@ -10,6 +10,7 @@ return {
         return vim.fn.executable 'make' == 1
       end,
     },
+    'nvim-telescope/telescope-live-grep-args.nvim',
   },
   config = function()
     local actions = require('telescope.actions')
@@ -60,6 +61,7 @@ return {
       },
     })
     require('telescope').load_extension('file_browser')
+    require("telescope").load_extension("live_grep_args")
 
     vim.keymap.set('n', ';f',
       function()
@@ -69,7 +71,7 @@ return {
         })
       end)
     vim.keymap.set('n', ';r', function()
-      builtin.live_grep()
+      require("telescope").extensions.live_grep_args.live_grep_args()
     end)
     vim.keymap.set('n', '\\\\', function()
       builtin.buffers()
@@ -95,5 +97,7 @@ return {
         layout_config = { height = 40 }
       })
     end)
+    local live_grep_args_shortcuts = require("telescope-live-grep-args.shortcuts")
+    vim.keymap.set("n", "<leader>gc", live_grep_args_shortcuts.grep_word_under_cursor)
   end,
 }

@@ -87,6 +87,9 @@ return {
 				-- globalstatus = false,
 				theme = "kanagawa",
 			},
+			sections = {
+				lualine_c = { { "filename", path = 1 } },
+			},
 		},
 	},
 

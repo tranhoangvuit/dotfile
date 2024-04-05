@@ -69,6 +69,7 @@ return {
 		end,
 	},
 
+	-- Symbols outline
 	{
 		"simrat39/symbols-outline.nvim",
 		keys = { { "<leader>cs", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
@@ -78,11 +79,49 @@ return {
 		},
 	},
 
+	-- A completion engine plugin
 	{
 		"nvim-cmp",
 		dependencies = { "hrsh7th/cmp-emoji" },
 		opts = function(_, opts)
 			table.insert(opts.sources, { name = "emoji" })
 		end,
+	},
+
+	-- Copilot chat in vim
+	{
+		"CopilotC-Nvim/CopilotChat.nvim",
+		branch = "canary",
+		dependencies = {
+			"zbirenbaum/copilot.lua", -- or github/copilot.vim
+			"nvim-lua/plenary.nvim", -- for curl, log wrapper
+		},
+		opts = {
+			debug = false, -- Enable debugging
+		},
+		keys = {
+			{
+				"<leader>cpc",
+				function()
+					local input = vim.fn.input("Quick Chat: ")
+					if input ~= "" then
+						local CopilotChat = require("CopilotChat")
+						return CopilotChat.ask(input, { selection = CopilotChat.select.buffer })
+					end
+				end,
+				desc = "Copilot Chat",
+			},
+			{
+				"<leader>cpi",
+				function()
+					local input = vim.fn.input("Inline Chat: ")
+					if input ~= "" then
+						local CopilotChat = require("CopilotChat")
+						return CopilotChat.ask(input, { selection = CopilotChat.select.inline })
+					end
+				end,
+				desc = "Copilot Inline Chat",
+			},
+		},
 	},
 }

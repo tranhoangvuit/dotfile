@@ -106,7 +106,8 @@ return {
 					local input = vim.fn.input("Quick Chat: ")
 					if input ~= "" then
 						local CopilotChat = require("CopilotChat")
-						return CopilotChat.ask(input, { selection = CopilotChat.select.buffer })
+						local CopilotChatSelect = require("CopilotChat.select")
+						return CopilotChat.ask(input, { selection = CopilotChatSelect.buffer })
 					end
 				end,
 				desc = "Copilot Chat",
@@ -117,11 +118,15 @@ return {
 					local input = vim.fn.input("Inline Chat: ")
 					if input ~= "" then
 						local CopilotChat = require("CopilotChat")
-						return CopilotChat.ask(input, { selection = CopilotChat.select.inline })
+						local CopilotChatSelect = require("CopilotChat.select")
+						return CopilotChat.ask(input, { selection = CopilotChatSelect.inline })
 					end
 				end,
 				desc = "Copilot Inline Chat",
 			},
+			{ "<leader>cpt", "<cmd>CopilotChatTests<cr>", desc = "CopilotChat - Generate tests" },
+			{ "<leader>cpr", "<cmd>CopilotChatReview<cr>", desc = "CopilotChat - Review code" },
+			{ "<leader>cpR", "<cmd>CopilotChatRefactor<cr>", desc = "CopilotChat - Refactor code" },
 		},
 	},
 }

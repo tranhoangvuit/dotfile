@@ -8,8 +8,5 @@ return {
 				transparent = true,
 			}
 		end,
-		config = function()
-			vim.cmd.colorscheme("kanagawa")
-		end,
 	},
 }

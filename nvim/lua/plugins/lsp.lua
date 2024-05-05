@@ -19,8 +19,21 @@ return {
 	-- lsp servers
 	{
 		"neovim/nvim-lspconfig",
+		init = function()
+			local keys = require("lazyvim.plugins.lsp.keymaps").get()
+			keys[#keys + 1] = {
+				"gd",
+				function()
+					-- DO NOT RESUSE WINDOW
+					require("telescope.builtin").lsp_definitions({ reuse_win = false })
+				end,
+				desc = "Goto Definition",
+				has = "definition",
+			}
+		end,
+
 		opts = {
-			inlay_hints = { enabled = true },
+			inlay_hints = { enabled = false },
 			---@type lspconfig.options
 			servers = {
 				cssls = {},
@@ -50,6 +63,7 @@ return {
 							inlayHints = {
 								includeInlayParameterNameHints = "all",
 								includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+
 								includeInlayFunctionParameterTypeHints = true,
 								includeInlayVariableTypeHints = true,
 								includeInlayPropertyDeclarationTypeHints = true,
@@ -59,6 +73,7 @@ return {
 						},
 					},
 				},
+
 				html = {},
 				yamlls = {
 					settings = {
@@ -84,9 +99,11 @@ return {
 									-- "--log-level=trace",
 								},
 							},
+
 							hint = {
 								enable = true,
 								setType = false,
+
 								paramType = true,
 								paramName = "Disable",
 								semicolon = "Disable",
@@ -100,6 +117,7 @@ return {
 							},
 							diagnostics = {
 								disable = { "incomplete-signature-doc", "trailing-space" },
+
 								-- enable = false,
 								groupSeverity = {
 									strong = "Warning",
@@ -107,12 +125,15 @@ return {
 								},
 								groupFileStatus = {
 									["ambiguity"] = "Opened",
+
 									["await"] = "Opened",
 									["codestyle"] = "None",
 									["duplicate"] = "Opened",
+
 									["global"] = "Opened",
 									["luadoc"] = "Opened",
 									["redefined"] = "Opened",
+
 									["strict"] = "Opened",
 									["strong"] = "Opened",
 									["type-check"] = "Opened",

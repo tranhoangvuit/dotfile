@@ -1,4 +1,5 @@
 return {
+	-- search labels, enhanced character motions
 	{
 		enabled = true,
 		"folke/flash.nvim",
@@ -18,6 +19,7 @@ return {
 		},
 	},
 
+	-- Highlight patterns in text.
 	{
 		"echasnovski/mini.hipatterns",
 		event = "BufReadPre",
@@ -26,10 +28,12 @@ return {
 		},
 	},
 
+	-- Git blame
 	{
 		"dinhhuy258/git.nvim",
 		event = "BufReadPre",
 		opts = {
+
 			keymaps = {
 				-- Open blame window
 				blame = "<Leader>gb",
@@ -39,6 +43,7 @@ return {
 		},
 	},
 
+	-- Calling lazygit
 	{
 		"kdheepak/lazygit.nvim",
 		dependencies = {
@@ -50,11 +55,13 @@ return {
 		end,
 	},
 
+	-- Find, Filter, Preview, Pick
 	{
 		"telescope.nvim",
 		dependencies = {
 			{
 				"nvim-telescope/telescope-fzf-native.nvim",
+
 				build = "make",
 			},
 			"nvim-telescope/telescope-file-browser.nvim",
@@ -64,6 +71,7 @@ return {
 				"<leader>fP",
 				function()
 					require("telescope.builtin").find_files({
+
 						cwd = require("lazy.core.config").options.root,
 					})
 				end,
@@ -71,6 +79,7 @@ return {
 			},
 			{
 				";f",
+
 				function()
 					local builtin = require("telescope.builtin")
 					builtin.find_files({
@@ -84,19 +93,27 @@ return {
 				";r",
 				function()
 					local builtin = require("telescope.builtin")
-					builtin.live_grep()
+					builtin.live_grep({
+						additional_args = { "--hidden" },
+					})
 				end,
+
 				desc = "Search for a string in your current working directory and get results live as you type, respects .gitignore",
 			},
+
 			{
+
 				"\\\\",
+
 				function()
 					local builtin = require("telescope.builtin")
 					builtin.buffers()
 				end,
 				desc = "Lists open buffers",
 			},
+
 			{
+
 				";t",
 				function()
 					local builtin = require("telescope.builtin")
@@ -120,7 +137,9 @@ return {
 				end,
 				desc = "Lists Diagnostics for all open buffers or a specific buffer",
 			},
+
 			{
+
 				";s",
 				function()
 					local builtin = require("telescope.builtin")
@@ -168,7 +187,9 @@ return {
 			})
 			opts.pickers = {
 				diagnostics = {
+
 					theme = "ivy",
+
 					initial_mode = "normal",
 					layout_config = {
 						preview_cutoff = 9999,
@@ -179,12 +200,15 @@ return {
 				file_browser = {
 					theme = "dropdown",
 					-- disables netrw and use telescope-file-browser in its place
+
 					hijack_netrw = true,
 					mappings = {
 						-- your custom insert mode mappings
 						["n"] = {
 							-- your custom normal mode mappings
+
 							["N"] = fb_actions.create,
+
 							["h"] = fb_actions.goto_parent_dir,
 							["/"] = function()
 								vim.cmd("startinsert")
@@ -209,5 +233,19 @@ return {
 			require("telescope").load_extension("fzf")
 			require("telescope").load_extension("file_browser")
 		end,
+	},
+
+	-- A code outline window for skimming and quick navigation
+	{
+		"stevearc/aerial.nvim",
+		opts = {},
+		-- Optional dependencies
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+			"nvim-tree/nvim-web-devicons",
+		},
+		keys = {
+			{ "<leader>cs", "<cmd>AerialToggle<cr>", desc = "Aerial (Symbols)" },
+		},
 	},
 }

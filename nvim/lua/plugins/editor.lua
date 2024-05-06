@@ -248,4 +248,43 @@ return {
 			{ "<leader>cs", "<cmd>AerialToggle<cr>", desc = "Aerial (Symbols)" },
 		},
 	},
+
+	-- Surround text objects with symbols
+	{
+		"kylechui/nvim-surround",
+		version = "*", -- Use for stability; omit to use `main` branch for the latest features
+		event = "VeryLazy",
+		config = function()
+			require("nvim-surround").setup({
+				-- Configuration here, or leave empty to use defaults
+			})
+		end,
+	},
+
+	-- Copilot chat
+	{
+		"CopilotC-Nvim/CopilotChat.nvim",
+		branch = "canary",
+		dependencies = {
+			{ "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
+			{ "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
+		},
+		opts = {
+			debug = false, -- Enable debugging
+		},
+		keys = {
+			{
+				"<leader>cpc",
+				function()
+					local input = vim.fn.input("Quick Chat: ")
+					if input ~= "" then
+						local CopilotChat = require("CopilotChat")
+						local CopilotChatSelect = require("CopilotChat.select")
+						return CopilotChat.ask(input, { selection = CopilotChatSelect.buffer })
+					end
+				end,
+				desc = "Copilot Chat",
+			},
+		},
+	},
 }

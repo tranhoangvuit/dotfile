@@ -1,0 +1,75 @@
+[
+  {
+    "context": "Editor && VimControl && !VimWaiting && !menu",
+    "bindings": {
+      ", t": "workspace::NewCenterTerminal",
+      "; f": "file_finder::Toggle",
+      ", b": "editor::ToggleGitBlame"
+    }
+  },
+  {
+    "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
+    "bindings": {
+      // Git
+      ", g h d": "editor::ToggleHunkDiff",
+      ", g h r": "editor::RevertSelectedHunks",
+      ", g b l": "editor::ToggleGitBlameInline",
+
+      // AI
+      ", a c": "assistant::ToggleFocus",
+      ", a i": "assistant::InlineAssist",
+
+      // LSP
+      "g d": "editor::GoToDefinition",
+      "g i": "editor::GoToImplementation",
+      "g t": "editor::GoToTypeDefinition",
+      "g r": "editor::FindAllReferences",
+
+      // Symbol search
+      "s s": "outline::Toggle",
+
+      // Editor
+      ", r n": "editor::Rename"
+    }
+  },
+  {
+    "context": "EmptyPane  SharedScreen  vim_operator == none && !VimWaiting && vim_mode != insert",
+    "bindings": {
+      ", r t": "task::Spawn",
+      ", r e": ["task::Rerun", { "reevaluate_context": true }],
+      ", e": "workspace::ToggleLeftDock"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == visual && !VimWaiting && !VimObject",
+    "bindings": {
+      "shift-j": "editor::MoveLineDown",
+      "shift-k": "editor::MoveLineUp"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-w n": "workspace::NewTerminal",
+      "ctrl-\\": "terminal_panel::ToggleFocus"
+    }
+  },
+  {
+    "context": "FileFinder",
+    "bindings": {
+      "ctrl-k": "menu::SelectPrev",
+      "ctrl-j": "menu::SelectNext"
+    }
+  },
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "a": "project_panel::NewFile",
+      "A": "project_panel::NewDirectory",
+      "r": "project_panel::Rename",
+      "d": "project_panel::Delete",
+      "c": "project_panel::Copy",
+      "p": "project_panel::Paste"
+    }
+  }
+]

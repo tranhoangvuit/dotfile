@@ -15,6 +15,7 @@ return {
 			"rafamadriz/friendly-snippets",
 			"moyiz/blink-emoji.nvim",
 			"ray-x/cmp-sql",
+			"Exafunction/codeium.nvim",
 		},
 
 		-- use a release tag to download pre-built binaries
@@ -54,7 +55,7 @@ return {
 			-- Default list of enabled providers defined so that you can extend it
 			-- elsewhere in your config, without redefining it, due to `opts_extend`
 			sources = {
-				default = { "lsp", "path", "snippets", "buffer", "emoji", "sql" },
+				default = { "lsp", "path", "snippets", "buffer", "emoji", "sql", "codeium" },
 				providers = {
 					emoji = {
 						module = "blink-emoji",
@@ -92,6 +93,7 @@ return {
 							)
 						end,
 					},
+					codeium = { name = "Codeium", module = "codeium.blink", async = true },
 				},
 			},
 

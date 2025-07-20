@@ -7,6 +7,9 @@ vim.opt.smarttab = true
 vim.opt.smartindent = true
 vim.opt.autoindent = true -- Keep identation from previous line
 
+-- Enable clipboard integration
+vim.opt.clipboard = "unnamedplus"
+
 -- Enable break indent
 vim.opt.breakindent = true
 

@@ -1,0 +1,37 @@
+[
+  {
+    "content": "Update useProfile Hook for Better Auth",
+    "status": "completed",
+    "id": "1"
+  },
+  {
+    "content": "Update Login Post-Authentication Logic",
+    "status": "completed",
+    "id": "2"
+  },
+  {
+    "content": "Update Schools Page for Better Auth",
+    "status": "completed",
+    "id": "3"
+  },
+  {
+    "content": "Remove Supabase Dependencies",
+    "status": "completed",
+    "id": "4"
+  },
+  {
+    "content": "Update Type Definitions",
+    "status": "completed",
+    "id": "5"
+  },
+  {
+    "content": "Clean Up Login Page Debugging",
+    "status": "completed",
+    "id": "6"
+  },
+  {
+    "content": "Verify Middleware and Requests",
+    "status": "completed",
+    "id": "7"
+  }
+]

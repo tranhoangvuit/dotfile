@@ -1,0 +1,27 @@
+[
+  {
+    "content": "Update database service to use PostGIS 17 image with init script",
+    "status": "completed",
+    "id": "1"
+  },
+  {
+    "content": "Configure backend service for Golang application",
+    "status": "completed",
+    "id": "2"
+  },
+  {
+    "content": "Configure frontend service for Next.js application",
+    "status": "completed",
+    "id": "3"
+  },
+  {
+    "content": "Replace Redis with Valkey",
+    "status": "completed",
+    "id": "4"
+  },
+  {
+    "content": "Create database initialization script",
+    "status": "completed",
+    "id": "5"
+  }
+]

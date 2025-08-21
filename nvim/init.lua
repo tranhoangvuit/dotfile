@@ -1,1 +1,2 @@
-require("config.lazy")
+-- Load plugin manager first
+require('config.lazy')

@@ -64,8 +64,12 @@ return {
 
 - **Leader key**: `,` (comma)
 - **Local leader**: `\` (backslash)
-- **Snacks.nvim** manages most utility keybindings (see `lua/plugins/snacks.nvim`)
+- **Snacks.nvim** manages most utility keybindings (see `lua/plugins/opencode.lua`)
 - Plugin-specific bindings are defined in their respective configuration files
+
+### Recent Key Binding Updates
+- **Harpoon**: Added with `<leader>ah` (add file), `<leader>h` (toggle menu), `<C-1>` through `<C-5>` (quick select)
+- **OpenCode**: AI assistant with `<leader>oa` (ask), `<leader>ot` (toggle), `<leader>op` (select prompt), `<leader>oe` (explain code)
 
 ## AI Integration Points
 
@@ -81,6 +85,7 @@ When modifying AI features, check compatibility between these systems.
 ### File Management
 - **Oil.nvim** is the primary file manager (bound to `-`)
 - **Snacks picker** provides fuzzy finding and grep functionality
+- **Harpoon**: Quick file navigation and bookmarking system for frequently used files
 
 ### Color Scheme
 - **Kanagawa** theme with transparency enabled

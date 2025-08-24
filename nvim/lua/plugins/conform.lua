@@ -1,6 +1,17 @@
 return {
 	{
 		"stevearc/conform.nvim",
+		keys = {
+			{
+				-- Customize or remove this keymap to your liking
+				"<leader>cf",
+				function()
+					require("conform").format({ async = true })
+				end,
+				mode = "",
+				desc = "Format buffer",
+			},
+		},
 		opts = {
 			format_on_save = {
 				timeout_ms = 500,
@@ -14,6 +25,7 @@ return {
 				typescriptreact = { "prettierd", "prettier", stop_after_first = true },
 				graphql = { "prettierd", "prettier", stop_after_first = true },
 				sql = { "sql_formatter" },
+                json = { "prettierd", "prettier" },
 			},
 		},
 	},

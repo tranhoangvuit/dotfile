@@ -4,24 +4,34 @@
     "bindings": {
       ", t": "workspace::NewCenterTerminal",
       "; f": "file_finder::Toggle",
-      ", b": "editor::ToggleGitBlame"
+      "; t": "workspace::ToggleBottomDock",
+      "; r": "workspace::NewSearch",
+      ", e": "pane::RevealInProjectPanel",
+      ", 1": ["pane::ActivateItem", 0],
+      ", 2": ["pane::ActivateItem", 1],
+      ", 3": ["pane::ActivateItem", 2],
+      ", 4": ["pane::ActivateItem", 3],
+      ", 5": ["pane::ActivateItem", 4],
+      ", 6": ["pane::ActivateItem", 5],
+
+      // AI
+      ", a c": "agent::ToggleFocus",
+      ", a i": "assistant::InlineAssist"
     }
   },
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
     "bindings": {
       // Git
-      ", g h d": "editor::ToggleHunkDiff",
-      ", g h r": "editor::RevertSelectedHunks",
       ", g b l": "editor::ToggleGitBlameInline",
 
       // AI
-      ", a c": "assistant::ToggleFocus",
+      ", a c": "assistant::Assist",
       ", a i": "assistant::InlineAssist",
 
       // LSP
       "g d": "editor::GoToDefinition",
-      "g i": "editor::GoToImplementation",
+      "g I": "editor::GoToImplementation",
       "g t": "editor::GoToTypeDefinition",
       "g r": "editor::FindAllReferences",
 
@@ -29,15 +39,13 @@
       "s s": "outline::Toggle",
 
       // Editor
-      ", r n": "editor::Rename"
-    }
-  },
-  {
-    "context": "EmptyPane  SharedScreen  vim_operator == none && !VimWaiting && vim_mode != insert",
-    "bindings": {
-      ", r t": "task::Spawn",
-      ", r e": ["task::Rerun", { "reevaluate_context": true }],
-      ", e": "workspace::ToggleLeftDock"
+      ", r n": "editor::Rename",
+
+      // Navigator
+      "s l": "workspace::ActivatePaneRight",
+      "s h": "workspace::ActivatePaneLeft",
+      "s k": "workspace::ActivatePaneUp",
+      "s j": "workspace::ActivatePaneDown"
     }
   },
   {
@@ -48,16 +56,17 @@
     }
   },
   {
-    "context": "Workspace",
+    "context": "Terminal",
     "bindings": {
-      "ctrl-w n": "workspace::NewTerminal",
-      "ctrl-\\": "terminal_panel::ToggleFocus"
+      "ctrl-t": "workspace::NewTerminal",
+      "ctrl-q": "pane::CloseActiveItem",
+      "ctrl-e": "editor::ToggleFocus"
     }
   },
   {
     "context": "FileFinder",
     "bindings": {
-      "ctrl-k": "menu::SelectPrev",
+      "ctrl-k": "menu::SelectPrevious",
       "ctrl-j": "menu::SelectNext"
     }
   },
@@ -70,6 +79,14 @@
       "d": "project_panel::Delete",
       "c": "project_panel::Copy",
       "p": "project_panel::Paste"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      ", e": "workspace::CloseActiveDock",
+      ", g": "git_panel::ToggleFocus",
+      ", o": "outline_panel::ToggleFocus"
     }
   }
 ]

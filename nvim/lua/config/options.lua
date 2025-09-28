@@ -44,11 +44,6 @@ vim.opt.splitbelow = true
 --  See `:help 'list'`
 --  and `:help 'listchars'`
 vim.opt.list = true
--- vim.opt.listchars = "tab: ,multispace:|   ,eol:󰌑"
-vim.opt.listchars = {
-	tab = " ",
-	multispace = "│   ",
-}
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 5

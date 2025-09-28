@@ -6,7 +6,7 @@ return {
   dependencies = {
     'neovim/nvim-lspconfig',
     'rafamadriz/friendly-snippets',
-    "Exafunction/codeium.nvim",
+    -- "Exafunction/codeium.nvim",
   },
   opts = {
     --
@@ -27,9 +27,9 @@ return {
     fuzzy = {  implementation = 'prefer_rust_with_warning'
     },
     sources = {
-      default = { 'lsp', 'path', 'buffer', 'snippets', "codeium" },
+      default = { 'lsp', 'path', 'buffer', 'snippets' },
       providers = {
-        codeium = { name = "Codeium", module = "codeium.blink", async = true },
+        -- codeium = { name = "Codeium", module = "codeium.blink", async = true },
       },
     },
   },

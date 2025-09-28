@@ -15,7 +15,7 @@ return {
 				}
 			end
 		});
-		vim.cmd("colorscheme kanagawa");
+		vim.cmd("colorscheme kanagawa-wave");
 	end,
 	build = function()
 		vim.cmd("KanagawaCompile");

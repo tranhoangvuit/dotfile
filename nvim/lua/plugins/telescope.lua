@@ -61,6 +61,21 @@ return {
 			end,
 			desc = "Resume the previous telescope picker",
 		},
+		{
+			"<leader>ss",
+			function()
+				local builtin = require("telescope.builtin")
+				builtin.lsp_document_symbols()
+			end,
+			desc = "Lists LSP document symbols in the current buffer",
+		},
+		{
+			"<leader>sS",
+			function()
+				require("telescope.builtin").lsp_workspace_symbols()
+			end,
+			desc = "Lists LSP workspace symbols",
+		},
 	},
 	config = function()
 		require("telescope").setup({

@@ -1,14 +1,27 @@
 return {
-	{
-		"nvim-treesitter/nvim-treesitter",
-		opts = {
-			auto_install = true,
-			highlight = {
-				enable = true,
-			},
-		},
-		config = function(_, opts)
-			require("nvim-treesitter.configs").setup(opts)
-		end,
-	},
+  "nvim-treesitter/nvim-treesitter",
+  opts = {
+    ensure_installed = {
+      "caddy",
+      "cmake",
+      "css",
+      "devicetree",
+      "gitcommit",
+      "gitignore",
+      "glsl",
+      "go",
+      "graphql",
+      "http",
+      "just",
+      "kconfig",
+      "meson",
+      "ninja",
+      "nix",
+      "scss",
+      "sql",
+      "wgsl",
+      "typescript",
+      "javascript",
+    },
+  },
 }

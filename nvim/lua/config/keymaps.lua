@@ -1,9 +1,12 @@
+-- Keymaps are automatically loaded on the VeryLazy event
+-- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
+-- Add any additional keymaps here
 local opts = { noremap = true, silent = true }
 
 -- Oil
 vim.keymap.set("n", "-", "<cmd>Oil --float<CR>", { desc = "Open Parent Directory in Oil" })
 vim.keymap.set("n", "gl", function()
-	vim.diagnostic.open_float()
+  vim.diagnostic.open_float()
 end, { desc = "Open Diagnostics in Float" })
 
 -- Yank to system clipboard
@@ -31,9 +34,9 @@ vim.keymap.set("n", "<C-w><down>", "<C-w>-")
 vim.keymap.set("t", "<Esc>", "<C-\\><C-N>")
 
 -- Open small terminal
-vim.keymap.set("n", "<leader>st", function()
-	vim.cmd.vnew()
-	vim.cmd.term()
-	vim.cmd.wincmd("J")
-	vim.api.nvim_win_set_height(0, 15)
+vim.keymap.set("n", "<leader>tt", function()
+  vim.cmd.vnew()
+  vim.cmd.term()
+  vim.cmd.wincmd("J")
+  vim.api.nvim_win_set_height(0, 15)
 end)

@@ -9,33 +9,46 @@
 {
   "context_servers": {
     "mcp-server-context7": {
-      "source": "extension",
       "enabled": true,
       "settings": {
-        "default_minimum_tokens": "10000"
+        "context7_api_key": ""
       }
     }
+  },
+  "agent": {
+    "inline_assistant_model": {
+      "provider": "zed.dev",
+      "model": "claude-haiku-4-5"
+    },
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "gpt-5-codex"
+    },
+    "model_parameters": []
   },
   "telemetry": {
     "metrics": false
   },
   "vim_mode": true,
-  "ui_font_size": 16,
-  "buffer_font_size": 15,
-  "tab_size": 2,
+  "base_keymap": "VSCode",
+  "ui_font_size": 15,
+  "buffer_font_size": 14,
+  "buffer_font_features": { "calt": false },
   "buffer_line_height": { "custom": 1.4 },
   "theme": {
     "mode": "system",
-    "light": "One Dark",
+    "light": "One Light",
     "dark": "One Dark"
   },
-  "relative_line_numbers": true,
+  "tab_size": 4,
+  "hard_tabs": true,
+  "relative_line_numbers": "enabled",
   "scrollbar": {
     "show": "never",
     "cursors": false,
     "git_diff": true,
     "search_results": true,
-    "selected_symbol": true,
+    "selected_symbol": false,
     "diagnostics": "all"
   },
   "centered_layout": {
@@ -43,8 +56,7 @@
     "right_padding": 0.1
   },
   "indent_guides": {
-    "enabled": true,
-    "coloring": "indent_aware"
+    "enabled": true
   },
   "preview_tabs": {
     "enabled": false

@@ -1,73 +1,54 @@
 [
   {
-    "context": "Editor && VimControl && !VimWaiting && !menu",
+    "context": "VimControl && !menu",
     "bindings": {
-      ", t": "workspace::NewCenterTerminal",
       "; f": "file_finder::Toggle",
+      "; g": "pane::DeploySearch",
+      "space t n": "panel::NextPanelTab",
+      "space t p": "vim::GoToPreviousTab",
+      "space t t": "workspace::NewCenterTerminal",
+      "space x x": "diagnostics::Deploy",
+      "space r n": "editor::Rename",
+      "space g b": "git::Branch",
+      "space 1": ["pane::ActivateItem", 0],
+      "space 2": ["pane::ActivateItem", 1],
+      "space 3": ["pane::ActivateItem", 2],
+      "space 4": ["pane::ActivateItem", 3],
+      "space 5": ["pane::ActivateItem", 4],
+      "space 6": ["pane::ActivateItem", 5]
+    }
+  },
+  {
+    "context": "vim_mode == visual",
+    "bindings": {
+      "ctrl-l": "agent::AddSelectionToThread"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-alt-c": [
+        "agent::NewExternalAgentThread",
+        { "agent": "claude_code" }
+      ],
       "; t": "workspace::ToggleBottomDock",
-      "; r": "workspace::NewSearch",
-      ", e": "pane::RevealInProjectPanel",
-      ", 1": ["pane::ActivateItem", 0],
-      ", 2": ["pane::ActivateItem", 1],
-      ", 3": ["pane::ActivateItem", 2],
-      ", 4": ["pane::ActivateItem", 3],
-      ", 5": ["pane::ActivateItem", 4],
-      ", 6": ["pane::ActivateItem", 5],
-
-      // AI
-      ", a c": "agent::ToggleFocus",
-      ", a i": "assistant::InlineAssist"
-    }
-  },
-  {
-    "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
-    "bindings": {
-      // Git
-      ", g b l": "editor::ToggleGitBlameInline",
-
-      // AI
-      ", a c": "assistant::Assist",
-      ", a i": "assistant::InlineAssist",
-
-      // LSP
-      "g d": "editor::GoToDefinition",
-      "g I": "editor::GoToImplementation",
-      "g t": "editor::GoToTypeDefinition",
-      "g r": "editor::FindAllReferences",
-
-      // Symbol search
-      "s s": "outline::Toggle",
-
-      // Editor
-      ", r n": "editor::Rename",
-
-      // Navigator
-      "s l": "workspace::ActivatePaneRight",
-      "s h": "workspace::ActivatePaneLeft",
-      "s k": "workspace::ActivatePaneUp",
-      "s j": "workspace::ActivatePaneDown"
-    }
-  },
-  {
-    "context": "Editor && vim_mode == visual && !VimWaiting && !VimObject",
-    "bindings": {
-      "shift-j": "editor::MoveLineDown",
-      "shift-k": "editor::MoveLineUp"
+      "; e": "workspace::ToggleLeftDock",
+      "; r": "workspace::ToggleRightDock"
     }
   },
   {
     "context": "Terminal",
     "bindings": {
-      "ctrl-t": "workspace::NewTerminal",
+      "ctrl-space": "workspace::ToggleBottomDock",
+      "ctrl-o": "workspace::NewTerminal",
+      "ctrl-n": "pane::ActivateNextItem",
+      "ctrl-p": "pane::ActivatePreviousItem",
       "ctrl-q": "pane::CloseActiveItem",
-      "ctrl-e": "editor::ToggleFocus"
-    }
-  },
-  {
-    "context": "FileFinder",
-    "bindings": {
-      "ctrl-k": "menu::SelectPrevious",
-      "ctrl-j": "menu::SelectNext"
+      "ctrl-w j": "workspace::ActivatePaneDown",
+      "ctrl-w k": "workspace::ActivatePaneUp",
+      "ctrl-w h": "workspace::ActivatePaneLeft",
+      "ctrl-w l": "workspace::ActivatePaneRight",
+      "ctrl-w up": "vim::ResizePaneUp"
     }
   },
   {
@@ -79,14 +60,6 @@
       "d": "project_panel::Delete",
       "c": "project_panel::Copy",
       "p": "project_panel::Paste"
-    }
-  },
-  {
-    "context": "Workspace",
-    "bindings": {
-      ", e": "workspace::CloseActiveDock",
-      ", g": "git_panel::ToggleFocus",
-      ", o": "outline_panel::ToggleFocus"
     }
   }
 ]

@@ -1,65 +1,65 @@
 [
-  {
-    "context": "VimControl && !menu",
-    "bindings": {
-      "; f": "file_finder::Toggle",
-      "; g": "pane::DeploySearch",
-      "space t n": "panel::NextPanelTab",
-      "space t p": "vim::GoToPreviousTab",
-      "space t t": "workspace::NewCenterTerminal",
-      "space x x": "diagnostics::Deploy",
-      "space r n": "editor::Rename",
-      "space g b": "git::Branch",
-      "space 1": ["pane::ActivateItem", 0],
-      "space 2": ["pane::ActivateItem", 1],
-      "space 3": ["pane::ActivateItem", 2],
-      "space 4": ["pane::ActivateItem", 3],
-      "space 5": ["pane::ActivateItem", 4],
-      "space 6": ["pane::ActivateItem", 5]
-    }
-  },
-  {
-    "context": "vim_mode == visual",
-    "bindings": {
-      "ctrl-l": "agent::AddSelectionToThread"
-    }
-  },
-  {
-    "context": "Workspace",
-    "bindings": {
-      "ctrl-alt-c": [
-        "agent::NewExternalAgentThread",
-        { "agent": "claude_code" }
-      ],
-      "; t": "workspace::ToggleBottomDock",
-      "; e": "workspace::ToggleLeftDock",
-      "; r": "workspace::ToggleRightDock"
-    }
-  },
-  {
-    "context": "Terminal",
-    "bindings": {
-      "ctrl-space": "workspace::ToggleBottomDock",
-      "ctrl-o": "workspace::NewTerminal",
-      "ctrl-n": "pane::ActivateNextItem",
-      "ctrl-p": "pane::ActivatePreviousItem",
-      "ctrl-q": "pane::CloseActiveItem",
-      "ctrl-w j": "workspace::ActivatePaneDown",
-      "ctrl-w k": "workspace::ActivatePaneUp",
-      "ctrl-w h": "workspace::ActivatePaneLeft",
-      "ctrl-w l": "workspace::ActivatePaneRight",
-      "ctrl-w up": "vim::ResizePaneUp"
-    }
-  },
-  {
-    "context": "ProjectPanel && not_editing",
-    "bindings": {
-      "a": "project_panel::NewFile",
-      "A": "project_panel::NewDirectory",
-      "r": "project_panel::Rename",
-      "d": "project_panel::Delete",
-      "c": "project_panel::Copy",
-      "p": "project_panel::Paste"
-    }
-  }
+	{
+		"context": "VimControl && !menu",
+		"bindings": {
+			"; f": "file_finder::Toggle",
+			"; g": "pane::DeploySearch",
+			"space t n": "panel::NextPanelTab",
+			"space t p": "vim::GoToPreviousTab",
+			"space t t": "workspace::NewCenterTerminal",
+			"space x x": "diagnostics::Deploy",
+			"space r n": "editor::Rename",
+			"space g b": "git::Branch",
+			"space 1": ["pane::ActivateItem", 0],
+			"space 2": ["pane::ActivateItem", 1],
+			"space 3": ["pane::ActivateItem", 2],
+			"space 4": ["pane::ActivateItem", 3],
+			"space 5": ["pane::ActivateItem", 4],
+			"space 6": ["pane::ActivateItem", 5],
+		},
+	},
+	{
+		"context": "vim_mode == visual",
+		"bindings": {
+			"ctrl-l": "agent::AddSelectionToThread",
+		},
+	},
+	{
+		"context": "Workspace",
+		"bindings": {
+			"ctrl-alt-c": [
+				"agent::NewExternalAgentThread",
+				{ "agent": "claude_code" },
+			],
+			"; t": "workspace::ToggleBottomDock",
+			"; e": "workspace::ToggleLeftDock",
+			"; r": "workspace::ToggleRightDock",
+		},
+	},
+	{
+		"context": "Terminal",
+		"bindings": {
+			"ctrl-space": "workspace::ToggleBottomDock",
+			"ctrl-o": "workspace::NewTerminal",
+			"ctrl-n": "pane::ActivateNextItem",
+			"ctrl-p": "pane::ActivatePreviousItem",
+			"ctrl-q": "pane::CloseActiveItem",
+			"ctrl-w j": "workspace::ActivatePaneDown",
+			"ctrl-w k": "workspace::ActivatePaneUp",
+			"ctrl-w h": "workspace::ActivatePaneLeft",
+			"ctrl-w l": "workspace::ActivatePaneRight",
+			"ctrl-w up": "vim::ResizePaneUp",
+		},
+	},
+	{
+		"context": "ProjectPanel && not_editing",
+		"bindings": {
+			"a": "project_panel::NewFile",
+			"A": "project_panel::NewDirectory",
+			"r": "project_panel::Rename",
+			"d": "project_panel::Delete",
+			"c": "project_panel::Copy",
+			"p": "project_panel::Paste",
+		},
+	},
 ]

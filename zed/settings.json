@@ -64,8 +64,8 @@
 		},
 	},
 	"title_bar": {
-		"show_onboarding_banner": false,
-		"show_project_items": false,
+		// "show_onboarding_banner": false,
+		// "show_project_items": false,
 		"show_branch_name": false,
 		"show_user_menu": false,
 	},

@@ -1,5 +1,6 @@
-require("snacks").setup({
-    opts = {
+return {
+  "folke/snacks.nvim",
+  opts = {
     scroll = {
       enabled = false, -- Disable scrolling animations
     },
@@ -118,4 +119,4 @@ require("snacks").setup({
     },
     -- Utils
   },
-})
+}

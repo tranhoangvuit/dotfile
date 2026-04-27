@@ -1,3 +1,6 @@
+-- Keymaps are automatically loaded on the VeryLazy event
+-- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
+-- Add any additional keymaps here
 local opts = { noremap = true, silent = true }
 
 -- Oil
@@ -26,11 +29,6 @@ vim.keymap.set("n", "<C-w><left>", "<C-w><")
 vim.keymap.set("n", "<C-w><right>", "<C-w>>")
 vim.keymap.set("n", "<C-w><up>", "<C-w>+")
 vim.keymap.set("n", "<C-w><down>", "<C-w>-")
-
--- tabs
-vim.keymap.set("n", "<Leader>te", "<cmd>tabnew<CR>")
-vim.keymap.set("n", "<Leader>tn", "<cmd>tabn<CR>")
-vim.keymap.set("n", "<Leader>tp", "<cmd>tabp<CR>")
 
 -- Exit terminal with Esc
 vim.keymap.set("t", "<Esc>", "<C-\\><C-N>")

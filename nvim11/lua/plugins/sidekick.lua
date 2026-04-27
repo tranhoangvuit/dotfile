@@ -1,4 +1,6 @@
-require("sidekick").setup({
+return {
+  "folke/sidekick.nvim",
+  event = "VeryLazy",
   opts = {},
   keys = {
     -- nes is also useful in normal mode
@@ -56,4 +58,4 @@ require("sidekick").setup({
       desc = "Sidekick Switch Focus",
     },
   },
-})
+}

@@ -1,4 +1,6 @@
-require("conform").setup({
+return {
+  {
+    "stevearc/conform.nvim",
     keys = {
       {
         -- Customize or remove this keymap to your liking
@@ -23,4 +25,11 @@ require("conform").setup({
         go = { "gofumpt", "goimports" },
       },
     },
-})
+  },
+  {
+    "windwp/nvim-ts-autotag",
+    config = function()
+      require("nvim-ts-autotag").setup()
+    end,
+  },
+}

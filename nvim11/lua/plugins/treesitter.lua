@@ -1,0 +1,27 @@
+return {
+  "nvim-treesitter/nvim-treesitter",
+  opts = {
+    ensure_installed = {
+      "caddy",
+      "cmake",
+      "css",
+      "devicetree",
+      "gitcommit",
+      "gitignore",
+      "glsl",
+      "go",
+      "graphql",
+      "http",
+      "just",
+      "kconfig",
+      "meson",
+      "ninja",
+      "nix",
+      "scss",
+      "sql",
+      "wgsl",
+      "typescript",
+      "javascript",
+    },
+  },
+}

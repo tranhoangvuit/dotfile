@@ -1,3 +1,6 @@
+-- Options are automatically loaded before lazy.nvim startup
+-- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
+-- Add any additional options here
 vim.opt.expandtab = true -- Convert tabs to spaces
 vim.opt.shiftwidth = 4 -- Amount to indent with << and >>
 vim.opt.tabstop = 4 -- How many spaces are shown per Tab
@@ -46,10 +49,7 @@ vim.opt.splitbelow = true
 vim.opt.list = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
-vim.opt.scrolloff = 8
+vim.opt.scrolloff = 5
 
 -- Enable 24-bit RGB color in the TUI (required for proper colors in tmux)
 vim.opt.termguicolors = true
-
--- Color schema
-vim.cmd.colorscheme("kanagawa-wave")

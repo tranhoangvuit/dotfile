@@ -10,6 +10,10 @@
       "src": "https://github.com/olimorris/codecompanion.nvim",
       "version": "17.33.0 - 18.0.0"
     },
+    "codediff.nvim": {
+      "rev": "8afc229d38dc13ce71b2ffbb860084b2c726e061",
+      "src": "https://github.com/esmuellert/codediff.nvim"
+    },
     "conform.nvim": {
       "rev": "4993e07fac6679d0a5005aa7499e0bad2bd39f19",
       "src": "https://github.com/stevearc/conform.nvim"
@@ -22,6 +26,10 @@
       "rev": "aef7f5cec0a40dbe7f3304214850c472e2264b10",
       "src": "https://github.com/rebelot/kanagawa.nvim"
     },
+    "lazygit.nvim": {
+      "rev": "a04ad0dbc725134edbee3a5eea29290976695357",
+      "src": "https://github.com/kdheepak/lazygit.nvim"
+    },
     "mason.nvim": {
       "rev": "57e5a8addb8c71fb063ee4acda466c7cf6ad2800",
       "src": "https://github.com/mason-org/mason.nvim"
@@ -29,6 +37,23 @@
     "mcphub.nvim": {
       "rev": "8ff40b5edc649959bb7e89d25ae18e055554859a",
       "src": "https://github.com/ravitemer/mcphub.nvim"
+    },
+    "neoscroll.nvim": {
+      "rev": "c8d29979cb0cb3a2437a8e0ae683fd82f340d3b8",
+      "src": "https://github.com/karb94/neoscroll.nvim"
+    },
+    "nvim-lspconfig": {
+      "rev": "21db1fd40cbcbf1524ae154ab8f394fdf085749a",
+      "src": "https://github.com/neovim/nvim-lspconfig"
+    },
+    "nvim-treesitter": {
+      "rev": "4916d6592ede8c07973490d9322f187e07dfefac",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter",
+      "version": "'main'"
+    },
+    "nvim-web-devicons": {
+      "rev": "8069e89df2d7259704286a5906a11c5b27d5b440",
+      "src": "https://github.com/nvim-tree/nvim-web-devicons"
     },
     "oil.nvim": {
       "rev": "01cb3a8ad7d5e8707041edc775af83dbf33838f4",

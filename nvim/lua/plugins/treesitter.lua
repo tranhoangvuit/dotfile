@@ -35,10 +35,16 @@ local ensure_installed = {
 
 require("nvim-treesitter").install(ensure_installed)
 
+-- filetype -> parser overrides (tsx parser handles jsx nodes)
+local ft_lang_override = {
+    javascriptreact = "tsx",
+    typescriptreact = "tsx",
+}
+
 vim.api.nvim_create_autocmd("FileType", {
     group = vim.api.nvim_create_augroup("nvim-treesitter-highlight", { clear = true }),
     callback = function(ev)
-        local lang = vim.treesitter.language.get_lang(ev.match)
+        local lang = ft_lang_override[ev.match] or vim.treesitter.language.get_lang(ev.match)
         if lang and pcall(vim.treesitter.start, ev.buf, lang) then
             vim.bo[ev.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
         end

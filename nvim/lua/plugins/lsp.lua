@@ -6,7 +6,50 @@ vim.lsp.enable({
 	'ty',            -- also $ uv tool install ty@latest
 	'ruff',          -- also $ uv tool install ruff@latest
 	'lua_ls',        -- also $ brew install lua-language-server
-    'gopls'          -- also $ brew install gopls
+	'gopls',         -- also $ brew install gopls
+	'vtsls',         -- also $ npm i -g @vtsls/language-server  (TS/JS, Next.js, RN, TanStack Start)
+	'eslint',        -- also $ npm i -g vscode-langservers-extracted
+	'tailwindcss',   -- also $ npm i -g @tailwindcss/language-server
+})
+
+-- vtsls: enable inlay hints + auto-import preferences for monorepos
+vim.lsp.config('vtsls', {
+	settings = {
+		typescript = {
+			inlayHints = {
+				parameterNames = { enabled = 'literals' },
+				parameterTypes = { enabled = true },
+				variableTypes = { enabled = true },
+				propertyDeclarationTypes = { enabled = true },
+				functionLikeReturnTypes = { enabled = true },
+				enumMemberValues = { enabled = true },
+			},
+			updateImportsOnFileMove = { enabled = 'always' },
+			preferences = { importModuleSpecifier = 'non-relative' },
+		},
+		javascript = {
+			inlayHints = {
+				parameterNames = { enabled = 'literals' },
+				variableTypes = { enabled = true },
+			},
+		},
+		vtsls = {
+			experimental = { completion = { enableServerSideFuzzyMatch = true } },
+		},
+	},
+})
+
+-- eslint: fix on save
+vim.api.nvim_create_autocmd('LspAttach', {
+	callback = function(ev)
+		local client = vim.lsp.get_client_by_id(ev.data.client_id)
+		if client and client.name == 'eslint' then
+			vim.api.nvim_create_autocmd('BufWritePre', {
+				buffer = ev.buf,
+				command = 'LspEslintFixAll',
+			})
+		end
+	end,
 })
 vim.o.signcolumn = 'yes' -- make lsp warnings not widen the gutter
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = 'Go to definition' })

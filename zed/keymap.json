@@ -23,6 +23,25 @@
 		},
 	},
 	{
+		"context": "VimControl && extension == md",
+		"bindings": {
+			"space m p": "markdown::OpenPreviewToTheSide",
+			"space m f": "markdown::OpenFollowingPreview",
+		},
+	},
+	{
+		"context": "MarkdownPreview",
+		"bindings": {
+			"j": "markdown::ScrollDown",
+			"k": "markdown::ScrollUp",
+			"shift-j": "markdown::ScrollDownByItem",
+			"shift-k": "markdown::ScrollUpByItem",
+			"d": "markdown::ScrollPageDown",
+			"u": "markdown::ScrollPageUp",
+			"q": "markdown::CloseAndReturnToEditor",
+		},
+	},
+	{
 		"context": "vim_mode == visual",
 		"bindings": {
 			"ctrl-l": "agent::AddSelectionToThread",

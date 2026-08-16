@@ -78,7 +78,12 @@
 		"git_gutter": "tracked_files",
 		"inline_blame": {
 			"enabled": true,
+			"show_commit_summary": true,
 		},
+	},
+	"git_panel": {
+		"dock": "left",
+		"default_width": 350,
 	},
 	"title_bar": {
 		// "show_onboarding_banner": false,

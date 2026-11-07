@@ -15,10 +15,11 @@ end
 
 ---Derive tabline highlight groups from the active colorscheme
 local function set_highlights()
-	local accent = hl_color("DiagnosticWarn", "fg")
+	-- Match lualine's normal-mode block (Function fg) so tabs follow the colorscheme
+	local accent = hl_color("Function", "fg")
 	local inactive_bg = hl_color("CursorLine", "bg") or hl_color("StatusLine", "bg")
 
-	vim.api.nvim_set_hl(0, "TabLineActive", { fg = hl_color("Normal", "bg"), bg = accent, bold = true })
+	vim.api.nvim_set_hl(0, "TabLineActive", { fg = hl_color("StatusLine", "bg"), bg = accent, bold = true })
 	vim.api.nvim_set_hl(0, "TabLineInactive", { fg = hl_color("Comment", "fg"), bg = inactive_bg })
 	vim.api.nvim_set_hl(0, "TabLineSepActive", { fg = accent, bg = "NONE" })
 	vim.api.nvim_set_hl(0, "TabLineSepInactive", { fg = inactive_bg, bg = "NONE" })

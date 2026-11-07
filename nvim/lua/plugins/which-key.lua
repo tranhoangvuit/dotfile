@@ -10,6 +10,7 @@ require("which-key").add({
 	{ "<leader>c", group = "code / copy" },
 	{ "<leader>g", group = "git" },
 	{ "<leader>m", group = "markdown" },
+	{ "<leader>n", group = "todo" },
 	{ "<leader>r", group = "review / rename" },
 	{ "<leader>s", group = "symbols" },
 	{ "<leader>t", group = "tab / terminal" },

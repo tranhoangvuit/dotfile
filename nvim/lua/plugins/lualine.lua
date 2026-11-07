@@ -46,6 +46,7 @@ require("lualine").setup({
 		},
 		lualine_x = {
 			lualine_utils.macro_recording(),
+			require("followup").lualine(),
 			{
 				"diagnostics",
 				symbols = {

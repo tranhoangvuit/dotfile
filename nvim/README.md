@@ -26,6 +26,7 @@ lua/config/
 lua/plugins/
   init.lua               -- requires each plugin module
   <plugin>.lua           -- one file per plugin
+lua/followup/            -- local todo-list plugin (see "Todo lists" below)
 lua/utils/               -- icons, lualine/tabline components, editor helpers, lazygit glue
 after/lsp/<server>.lua   -- per-server LSP settings (lua_ls, vtsls, cssls, oxlint)
 ```
@@ -57,6 +58,7 @@ Parts adapted from [craftzdog/dotfiles](https://github.com/craftzdog/dotfiles/tr
 | todo-comments| Highlight / search TODOs           |
 | highlight-colors | Inline color previews          |
 | render-markdown | In-buffer markdown rendering    |
+| followup (local) | Per-project + global todo lists with due dates |
 
 ## Keymaps
 
@@ -147,6 +149,29 @@ Leader is `<Space>`.
 | `<leader>ms` | Markdown preview in side split |
 | `<leader>tt` | Open terminal in vsplit      |
 | `<Esc>`      | Exit terminal mode           |
+
+### Todo lists (`lua/followup`)
+
+One list per git repo plus a global one, stored as markdown in
+`stdpath("data")/followup/` (outside the repos).
+
+| Key          | Action                                   |
+|--------------|------------------------------------------|
+| `<leader>nn` | Open project list (float)                |
+| `<leader>nN` | Open global list                         |
+| `<leader>na` | Add todo to project list                 |
+| `<leader>nA` | Add todo linked to cursor `[file:line]`  |
+| `<leader>ng` | Add global todo                          |
+| `<leader>nf` | Picker of open todos, all lists (`<C-g>` jumps to linked code) |
+| `<leader>nd` | Show due / overdue todos                 |
+
+Inside a list: `<CR>` toggle, `o`/`O` new item, `gd` go to linked code, `q` close (autosaves).
+
+Due dates: `@2026-11-10`, or shorthands `@today`, `@tomorrow`, `@+3`, `@+2w`, `@fri`
+(expanded on add/save). Overdue dates are red, today's yellow. Startup shows a
+notification for anything due; lualine shows the open count (`!n` = overdue).
+
+`:Followup open | global | add [text] | find | due | clean` (`clean` removes done items).
 
 ## Notes
 

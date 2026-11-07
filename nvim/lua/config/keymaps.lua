@@ -59,3 +59,38 @@ vim.keymap.set("n", "<leader>tt", function()
   vim.cmd.wincmd("J")
   vim.api.nvim_win_set_height(0, 15)
 end)
+
+-- Do things without updating the registers
+vim.keymap.set("n", "x", '"_x')
+vim.keymap.set("n", "<leader>p", '"0p', { desc = "Paste last yank" })
+vim.keymap.set("n", "<leader>P", '"0P', { desc = "Paste last yank before" })
+vim.keymap.set("v", "<leader>p", '"0p', { desc = "Paste last yank" })
+
+-- New line without comment continuation
+vim.keymap.set("n", "<leader>o", "o<Esc>^Da", opts)
+vim.keymap.set("n", "<leader>O", "O<Esc>^Da", opts)
+
+-- Toggle inlay hints
+vim.keymap.set("n", "<leader>i", function()
+  vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = 0 }), { bufnr = 0 })
+end, { desc = "Toggle inlay hints" })
+
+-- Copy file path with line number
+vim.keymap.set("n", "<leader>cy", function()
+  require("utils.editor").yank_relative_path_with_line()
+end, { desc = "Copy relative path with line" })
+
+vim.keymap.set("n", "<leader>cY", function()
+  require("utils.editor").yank_absolute_path_with_line()
+end, { desc = "Copy absolute path with line" })
+
+vim.keymap.set("v", "<leader>cc", ":<C-u>lua require('utils.editor').copy_as_codeblock()<CR>",
+  { desc = "Copy as markdown codeblock" })
+
+vim.keymap.set("n", "<leader>j", function()
+  require("utils.editor").open_package_json()
+end, { desc = "Open package.json in floating window" })
+
+vim.keymap.set("n", "<leader>bd", function()
+  require("utils.editor").delete_hidden_buffers()
+end, { desc = "Delete hidden buffers" })

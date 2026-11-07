@@ -16,7 +16,9 @@
 		},
 		"claude-acp": {
 			"default_config_options": {
-				"model": "opus[1m]",
+				"effort": "high",
+    "fast": true,
+    "model": "sonnet",
 			},
 			"type": "registry",
 		},

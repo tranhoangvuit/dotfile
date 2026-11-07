@@ -5,10 +5,10 @@ vim.pack.add({
 	},
 })
 
--- Lazy load on first insert mode entry
+-- Lazy load on first insert / cmdline mode entry
 local group = vim.api.nvim_create_augroup("BlinkCmpLazyLoad", { clear = true })
 
-vim.api.nvim_create_autocmd("InsertEnter", {
+vim.api.nvim_create_autocmd({ "InsertEnter", "CmdlineEnter" }, {
 	pattern = "*",
 	group = group,
 	once = true,
@@ -17,9 +17,39 @@ vim.api.nvim_create_autocmd("InsertEnter", {
 			keymap = { preset = "super-tab" },
 			appearance = {
 				use_nvim_cmp_as_default = true,
+				kind_icons = require("utils.icons").kinds,
 			},
 			completion = {
-				documentation = { auto_show = false },
+				accept = {
+					-- experimental auto-brackets support
+					auto_brackets = { enabled = true },
+				},
+				menu = {
+					draw = {
+						treesitter = { "lsp" },
+					},
+				},
+				documentation = {
+					auto_show = true,
+					auto_show_delay_ms = 200,
+				},
+			},
+			cmdline = {
+				enabled = true,
+				keymap = {
+					preset = "cmdline",
+					["<Right>"] = false,
+					["<Left>"] = false,
+				},
+				completion = {
+					list = { selection = { preselect = false } },
+					menu = {
+						auto_show = function()
+							return vim.fn.getcmdtype() == ":"
+						end,
+					},
+					ghost_text = { enabled = true },
+				},
 			},
 			sources = {
 				default = { "lsp", "path", "snippets", "buffer" },
@@ -28,4 +58,3 @@ vim.api.nvim_create_autocmd("InsertEnter", {
 		})
 	end,
 })
-

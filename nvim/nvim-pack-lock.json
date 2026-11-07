@@ -22,6 +22,18 @@
       "rev": "e32b672d8fd343f9d6a76944fedb8c61d7d8111a",
       "src": "https://github.com/j-hui/fidget.nvim"
     },
+    "gitlinker.nvim": {
+      "rev": "cceee2f1de1486114b7e85ed9b8d5fc6a43a9be5",
+      "src": "https://github.com/linrongbin16/gitlinker.nvim"
+    },
+    "gitsigns.nvim": {
+      "rev": "ef707fb93301a9b856f36eae4c8f56f5b988a794",
+      "src": "https://github.com/lewis6991/gitsigns.nvim"
+    },
+    "incline.nvim": {
+      "rev": "debd628e9395f7a9da57bdc31ce75ca6b40a880b",
+      "src": "https://github.com/b0o/incline.nvim"
+    },
     "kanagawa.nvim": {
       "rev": "aef7f5cec0a40dbe7f3304214850c472e2264b10",
       "src": "https://github.com/rebelot/kanagawa.nvim"
@@ -29,6 +41,10 @@
     "lazygit.nvim": {
       "rev": "a04ad0dbc725134edbee3a5eea29290976695357",
       "src": "https://github.com/kdheepak/lazygit.nvim"
+    },
+    "lualine.nvim": {
+      "rev": "221ce6b2d999187044529f49da6554a92f740a96",
+      "src": "https://github.com/nvim-lualine/lualine.nvim"
     },
     "mason.nvim": {
       "rev": "57e5a8addb8c71fb063ee4acda466c7cf6ad2800",
@@ -38,9 +54,17 @@
       "rev": "8ff40b5edc649959bb7e89d25ae18e055554859a",
       "src": "https://github.com/ravitemer/mcphub.nvim"
     },
+    "mini.pairs": {
+      "rev": "03eb1f0062a2cee5314d1ac3939246e4bb21352e",
+      "src": "https://github.com/nvim-mini/mini.pairs"
+    },
     "neoscroll.nvim": {
       "rev": "c8d29979cb0cb3a2437a8e0ae683fd82f340d3b8",
       "src": "https://github.com/karb94/neoscroll.nvim"
+    },
+    "nvim-highlight-colors": {
+      "rev": "e4c7af0211866162d999ce0bdd6a029302e19139",
+      "src": "https://github.com/brenoprata10/nvim-highlight-colors"
     },
     "nvim-lspconfig": {
       "rev": "21db1fd40cbcbf1524ae154ab8f394fdf085749a",
@@ -70,6 +94,18 @@
     "snacks.nvim": {
       "rev": "fe7cfe9800a182274d0f868a74b7263b8c0c020b",
       "src": "https://github.com/folke/snacks.nvim"
+    },
+    "tiny-cmdline.nvim": {
+      "rev": "ac9c6557c66da6308eb523643df8778f3cbe652f",
+      "src": "https://github.com/rachartier/tiny-cmdline.nvim"
+    },
+    "todo-comments.nvim": {
+      "rev": "31e3c38ce9b29781e4422fc0322eb0a21f4e8668",
+      "src": "https://github.com/folke/todo-comments.nvim"
+    },
+    "treesitter-autoinstall.nvim": {
+      "rev": "b60bd6b84ec9bd3ce6447e51bff6ffc6142f60b7",
+      "src": "https://github.com/mks-h/treesitter-autoinstall.nvim"
     },
     "trouble.nvim": {
       "rev": "bd67efe408d4816e25e8491cc5ad4088e708a69a",

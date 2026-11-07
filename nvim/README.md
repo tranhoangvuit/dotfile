@@ -56,6 +56,7 @@ Parts adapted from [craftzdog/dotfiles](https://github.com/craftzdog/dotfiles/tr
 | mini.pairs   | Auto pairs                         |
 | todo-comments| Highlight / search TODOs           |
 | highlight-colors | Inline color previews          |
+| render-markdown | In-buffer markdown rendering    |
 
 ## Keymaps
 
@@ -142,6 +143,8 @@ Leader is `<Space>`.
 | `<leader>cc` (visual) | Copy selection as markdown codeblock |
 | `<leader>j`  | package.json in float        |
 | `<leader>bd` | Delete hidden buffers        |
+| `<leader>mp` | Toggle markdown render       |
+| `<leader>ms` | Markdown preview in side split |
 | `<leader>tt` | Open terminal in vsplit      |
 | `<Esc>`      | Exit terminal mode           |
 
